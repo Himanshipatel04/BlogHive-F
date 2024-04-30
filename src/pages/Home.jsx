@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="outline inria-sans-light h-[727px] flex items-center justify-between pr-36 pl-36  ">
-      <div className="flex flex-col items-start gap-6 text-left justify-between -mt-20 w-[750px] h-[250px] ">
+      <div className="flex flex-col items-start gap-4 text-left justify-between -mt-20 w-[750px] h-[250px] ">
         <p className="text-3xl ">
           Put soul into your words and bring it to life.
         </p>
