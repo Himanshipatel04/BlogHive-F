@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
-import { MdEmail } from "react-icons/md";
+// import { MdEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 
@@ -16,16 +16,6 @@ const Login = () => {
           action="post"
           className="flex  flex-col items-center  justify-center p-10 gap-10  "
         >
-          <div className="relative">
-            <input
-              className="w-72 p-1 pl-8 shadow-sm shadow-gray-700 rounded-lg outline-none border-none"
-              type="email"
-              name=""
-              id=""
-              placeholder="Enter email"
-            />
-            <MdEmail className="absolute top-2 left-2 text-gray-400" />
-          </div>
           <div className="relative">
             <input
               className="w-72 pl-8 p-1 shadow-sm shadow-gray-700 rounded-lg outline-none border-none"
