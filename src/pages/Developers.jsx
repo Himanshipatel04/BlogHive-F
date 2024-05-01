@@ -13,8 +13,8 @@ const Developers = () => {
             <p>Software Developer</p>
           </div>
         </div>
-        <div className="flex gap-6 w-[410px] h-80 bg-black text-white justify-center items-center shadow-lg shadow-black rounded-tr-2xl rounded-bl-2xl">
-          <img src={prince} className="h-80 py-3 w-56 object-cover pl-3 rounded-bl-3xl rounded-tr-3xl" alt="" />
+        <div className="flex gap-4 w-[410px] h-80 bg-black text-white justify-center items-center shadow-lg shadow-black rounded-tr-2xl rounded-bl-2xl">
+          <img src={prince} className="h-80 py-3 w-56 object-cover pl-2 rounded-bl-3xl rounded-tr-3xl" alt="" />
           <div className="">
             <p className=" text-xl inria-sans-regular-italic">Prince Chaurasia</p>
             <p>Software Developer</p>

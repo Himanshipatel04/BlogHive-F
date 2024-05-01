@@ -7,7 +7,7 @@ const Header = () => {
     <div>
       <nav className=" bg-black h-20 inria-sans-light p-4 flex items-center justify-between">
          <Link to="/" className="p-1 text-right">
-         <p className="inria-sans-light text-white tracking-wide text-2xl font-extrabold mb-1">BlogHive.</p>
+         <p className="inria-sans-regular2 text-white tracking-wide text-3xl mb-1">BlogHive.</p>
           <p className=" text-sm text-center text-white tracking-widest">
             Write your heart out!
           </p></Link>
