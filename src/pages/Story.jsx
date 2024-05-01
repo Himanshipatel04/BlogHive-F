@@ -10,7 +10,7 @@ const Story = () => {
       <p className="text-6xl inria-sans-bold ">
         Where Every Story Finds Its Buzz
       </p>
-     <div className="flex gap-40 ">
+     <div className="flex gap-32 ">
      <div className="flex flex-col gap-10 w-[800px] inria-sans-regular text-2xl tracking-wide space-y-3">
         <p>
           Welcome to BlogHive, where stories come to life! Our platform is
