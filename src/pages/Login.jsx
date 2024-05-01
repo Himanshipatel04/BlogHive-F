@@ -24,16 +24,16 @@ const Login = () => {
               id=""
               placeholder="Enter username"
             />
-            <FaUser className="absolute top-2 left-2 text-gray-400"/>
+            <FaUser className="absolute top-2 left-2 text-gray-400" />
           </div>
           <div className="relative">
-          <input
-            className="w-72 p-1 shadow-sm pl-8 shadow-gray-700 rounded-lg outline-none border-none"
-            type="password"
-            name=""
-            id=""
-            placeholder="Enter Password"
-          />
+            <input
+              className="w-72 p-1 shadow-sm pl-8 shadow-gray-700 rounded-lg outline-none border-none"
+              type="password"
+              name=""
+              id=""
+              placeholder="Enter Password"
+            />
             <MdOutlinePassword className="absolute top-2 left-2 text-gray-400" />
           </div>
           <div className="flex w-full items-center justify-center">

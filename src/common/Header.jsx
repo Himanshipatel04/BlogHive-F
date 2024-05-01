@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
-      <nav className=" bg-black h-16 inria-sans-light p-4 flex items-center justify-between">
+      <nav className=" bg-black h-20 inria-sans-light p-4 flex items-center justify-between">
          <Link to="/" className="p-1 text-right">
          <p className="inria-sans-regular2 text-white tracking-wide text-3xl mb-1">BlogHive.</p>
           <p className=" text-sm text-center text-white tracking-widest">
