@@ -7,7 +7,7 @@ import { FaUser } from "react-icons/fa";
 
 const Login = () => {
   return (
-    <div className="h-[730px] flex justify-center items-center">
+    <div className="h-fit py-28 flex justify-center items-center">
       <div className="flex flex-col items-center rounded-2xl justify-center h-[500px] w-[400px] shadow-lg shadow-black">
         <p className="inria-sans-bold tracking-wide text-5xl font-extrabold mb-1">
           BlogHive
