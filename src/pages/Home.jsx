@@ -1,7 +1,7 @@
 import React from "react";
 import drawing from "../asset/huve.png";
 import ink from "../asset/INK.png";
-import Button from "../components/Button";
+import Button2 from "../components/Button2";
 import linkedin from "../asset/linkedin.png";
 import twitter from "../asset/social-media.png";
 import instagram from "../asset/instagram.png";
@@ -20,7 +20,7 @@ const Home = () => {
           Unleash your thoughts, share your stories, and connect with a
           community buzzing with inspiration.
         </p>
-        <Button text="Get Started" link="/login"/>
+        <Button2 text="Get Started" link="/login"/>
         <div className="flex items-center justify-between gap-10 mt-4">
            <Link to=""> <img className="h-7 hover:scale-110"  src={linkedin} alt="" /></Link>
            <Link to=""> <img className="h-7 hover:scale-110"  src={instagram} alt="" /></Link>

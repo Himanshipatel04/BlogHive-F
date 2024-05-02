@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
+import axios from "axios";
 
 const Register = () => {
+
+   const [data,setData] = useState()
+
+   const router = useNavigate()
+   
+   const handleChange = (e) => {
+       setData({...data,[e.target.id]:e.target.value})
+   }
+
+   const handleSubmit = async(e) => {
+      e.preventDefault();
+      try {
+         const res = await axios.post("/api/v1/users/register",data)
+          console.log(res);
+          alert("User created successfully!")
+           router("/")
+      } catch (error) {
+        console.log(`Error while regsitering ${error}`);
+      }
+   }
+
+
   return (
     <div className="h-fit py-28 flex justify-center items-center">
       <div className="flex flex-col items-center rounded-2xl justify-center h-[500px] w-[400px] shadow-lg shadow-black">
@@ -20,8 +43,9 @@ const Register = () => {
             <input
               className="w-72 p-1 pl-8 shadow-sm shadow-gray-700 rounded-lg outline-none border-none"
               type="email"
-              name=""
-              id=""
+              onChange={handleChange}
+              required
+              id="email"
               placeholder="Enter email"
             />
             <MdEmail className="absolute top-2 left-2 text-gray-400" />
@@ -30,8 +54,9 @@ const Register = () => {
             <input
               className="w-72 pl-8 p-1 shadow-sm shadow-gray-700 rounded-lg outline-none border-none"
               type="text"
-              name=""
-              id=""
+              required
+              onChange={handleChange}
+              id="username"
               placeholder="Enter username"
             />
             <FaUser className="absolute top-2 left-2 text-gray-400" />
@@ -40,14 +65,15 @@ const Register = () => {
             <input
               className="w-72 p-1 shadow-sm pl-8 shadow-gray-700 rounded-lg outline-none border-none"
               type="password"
-              name=""
-              id=""
+              required
+              id="password"
+              onChange={handleChange}
               placeholder="Enter Password"
             />
             <MdOutlinePassword className="absolute top-2 left-2 text-gray-400" />
           </div>
           <div className="flex w-full items-center justify-center">
-            <Button text="Register" link="/" />
+            <Button func={handleSubmit} text="Register" />
           </div>
         </form>
         <p>

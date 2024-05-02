@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 // import { MdEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 
 const Login = () => {
+  const [data, setData] = useState();
+
+  const router = useNavigate();
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("/api/v1/users/login", data);
+      console.log(res);
+      alert("User login successfully!");
+      router("/");
+    } catch (error) {
+      console.log(`Error while regsitering ${error}`);
+    }
+  };
+
   return (
     <div className="h-fit py-28 flex justify-center items-center">
       <div className="flex flex-col items-center rounded-2xl justify-center h-[500px] w-[400px] shadow-lg shadow-black">
@@ -20,8 +41,8 @@ const Login = () => {
             <input
               className="w-72 pl-8 p-1 shadow-sm shadow-gray-700 rounded-lg outline-none border-none"
               type="text"
-              name=""
-              id=""
+              id="username"
+              onChange={handleChange}
               placeholder="Enter username"
             />
             <FaUser className="absolute top-2 left-2 text-gray-400" />
@@ -30,14 +51,14 @@ const Login = () => {
             <input
               className="w-72 p-1 shadow-sm pl-8 shadow-gray-700 rounded-lg outline-none border-none"
               type="password"
-              name=""
-              id=""
+              onChange={handleChange}
+              id="password"
               placeholder="Enter Password"
             />
             <MdOutlinePassword className="absolute top-2 left-2 text-gray-400" />
           </div>
           <div className="flex w-full items-center justify-center">
-            <Button text="Login" link="/" />
+            <Button text="Login" func={handleSubmit} />
           </div>
         </form>
         <p>
