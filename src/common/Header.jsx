@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
-      <nav className=" bg-black h-20 inria-sans-light p-4 flex items-center justify-between">
-         <Link to="/" className="p-1 text-right">
-         <p className="inria-sans-regular2 text-white tracking-wide text-3xl mb-1">BlogHive.</p>
-          <p className=" text-sm text-center text-white tracking-widest">
+      <nav className=" bg-black inria-sans-light py-1 px-16 flex items-center justify-between">
+         <Link to="/" className="p-1 grid gap-1">
+         <p className="inria-sans-regular2 font-extrabold text-white tracking-wide text-4xl">BlogHive.</p>
+          <p className=" text-xs font-semibold text-right text-white tracking-wider">
             Write your heart out!
           </p></Link>
 
