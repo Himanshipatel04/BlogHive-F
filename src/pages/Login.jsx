@@ -2,12 +2,19 @@ import React, { useState } from "react";
 import Button from "../components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 // import { MdEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 
 const Login = () => {
   const [data, setData] = useState();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handlePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const router = useNavigate();
 
@@ -45,18 +52,26 @@ const Login = () => {
               onChange={handleChange}
               placeholder="Enter username"
             />
-            <FaUser className="absolute top-2 left-2 text-gray-400" />
+            <FaUser className="absolute top-2 left-2 text-gray-500" />
           </div>
           <div className="relative">
             <input
               className="w-72 p-1 shadow-sm pl-8 shadow-gray-700 rounded-lg outline-none border-none"
-              type="password"
+              type={showPassword ? "text" : "password"}
               onChange={handleChange}
               id="password"
               placeholder="Enter Password"
             />
-            <MdOutlinePassword className="absolute top-2 left-2 text-gray-400" />
+            <MdOutlinePassword className="absolute top-2 left-2 text-gray-500" />
+            <button
+              type="button"
+              className="absolute top-2 right-2 text-gray-500"
+              onClick={handlePassword}
+            >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </button>
           </div>
+
           <div className="flex w-full items-center justify-center">
             <Button text="Login" func={handleSubmit} />
           </div>

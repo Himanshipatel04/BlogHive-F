@@ -5,7 +5,7 @@ const Blog = () => {
   return (
     <div className="flex items-center justify-center h-[720px]">
         <BlogCard/>
-    </div>
+    </div> 
   )
 }
 

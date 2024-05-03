@@ -1,33 +1,38 @@
 import React, { useState } from "react";
 import Button from "../components/Button";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import axios from "axios";
 
 const Register = () => {
+  const [data, setData] = useState();
+  const [showPassword, setShowPassword] = useState(false);
 
-   const [data,setData] = useState()
+  const handlePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
-   const router = useNavigate()
-   
-   const handleChange = (e) => {
-       setData({...data,[e.target.id]:e.target.value})
-   }
+  const router = useNavigate();
 
-   const handleSubmit = async(e) => {
-      e.preventDefault();
-      try {
-         const res = await axios.post("/api/v1/users/register",data)
-          console.log(res);
-          alert("User created successfully!")
-           router("/")
-      } catch (error) {
-        console.log(`Error while regsitering ${error}`);
-      }
-   }
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.id]: e.target.value });
+  };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("/api/v1/users/register", data);
+      console.log(res);
+      alert("User created successfully!");
+      router("/");
+    } catch (error) {
+      console.log(`Error while regsitering ${error}`);
+    }
+  };
 
   return (
     <div className="h-fit py-28 flex justify-center items-center">
@@ -64,13 +69,19 @@ const Register = () => {
           <div className="relative">
             <input
               className="w-72 p-1 shadow-sm pl-8 shadow-gray-700 rounded-lg outline-none border-none"
-              type="password"
-              required
-              id="password"
+              type={showPassword ? "text" : "password"}
               onChange={handleChange}
+              id="password"
               placeholder="Enter Password"
             />
-            <MdOutlinePassword className="absolute top-2 left-2 text-gray-400" />
+            <MdOutlinePassword className="absolute top-2 left-2 text-gray-500" />
+            <button
+              type="button"
+              className="absolute top-2 right-2 text-gray-500"
+              onClick={handlePassword}
+            >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </button>
           </div>
           <div className="flex w-full items-center justify-center">
             <Button func={handleSubmit} text="Register" />
