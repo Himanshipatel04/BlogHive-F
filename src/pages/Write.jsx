@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "../components/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import video from '../asset/writing.gif'
+import userContext from "../context/user.context";
 
 const Write = () => {
   const [data, setData] = useState();
   const router = useNavigate();
+  const { user } = useContext(userContext);
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.id]: e.target.value });
@@ -14,6 +16,10 @@ const Write = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!user) {
+      router("/login"); 
+      return;
+    }
     try {
       const res = axios.post("/api/v1/blogs/createBlog", data);
       console.log(res);

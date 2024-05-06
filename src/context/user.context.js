@@ -9,6 +9,7 @@ export const UserContextProvider = ({ children }) => {
   useEffect(() => {
     const parseAccessToken = () => {
       const accessToken = localStorage.getItem("accessToken");
+      console.log(accessToken);
       if (accessToken) {
         try {
           const decodedToken = jwtDecode(accessToken);
@@ -30,3 +31,5 @@ export const UserContextProvider = ({ children }) => {
     <userContext.Provider value={{ user }}>{children}</userContext.Provider>
   );
 };
+
+export default userContext;
