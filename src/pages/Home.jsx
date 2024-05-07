@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import drawing from "../asset/huve.png";
 import ink from "../asset/INK.png";
 import Button2 from "../components/Button2";
@@ -7,23 +7,9 @@ import twitter from "../asset/social-media.png";
 import instagram from "../asset/instagram.png";
 import telegram from "../asset/telegram.png";
 import { Link } from "react-router-dom";
-// import Button from "../components/Button";
-// import axios from "axios";
-// import userContext from "../context/user.context";
 
 const Home = () => {
-  // const { setUser } = useContext(userContext);
-  // const handleLogout = async () => {
-  //   try {
-  //     await axios.post("/api/v1/users/logout");
-  //     localStorage.removeItem("accessToken");
-  //     alert("Logout Successfull!")
-  //     setUser(null);
 
-  //   } catch (error) {
-  //     console.error("Error logging out:", error);
-  //   }
-  // };
   return (
     <div className="inria-sans-light h-fit py-52 flex items-center justify-between pr-36 pl-36  ">
      

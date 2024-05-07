@@ -24,7 +24,7 @@ const Write = () => {
       const res = axios.post("/api/v1/blogs/createBlog", data);
       console.log(res);
       alert("Blog created successfully!");
-      router("/");
+      // router("/");
     } catch (error) {
       console.log(`Error while posting blog! ${error}`);
     }

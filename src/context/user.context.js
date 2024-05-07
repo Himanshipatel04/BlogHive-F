@@ -1,5 +1,6 @@
-import { createContext, useEffect, useState } from "react";
-import { jwtDecode } from "jwt-decode";
+import { createContext, useEffect, useState} from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const userContext = createContext(null);
 
@@ -7,28 +8,22 @@ export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const parseAccessToken = () => {
-      const accessToken = localStorage.getItem("accessToken");
-      console.log(accessToken);
-      if (accessToken) {
-        try {
-          const decodedToken = jwtDecode(accessToken);
-          setUser(decodedToken);
-        } catch (error) {
-          console.log("User not found!");
-          setUser(null);
-        }
-      } else {
-        setUser(null);
+    const fetchUser = async () => {
+      try {
+        const response = await axios.post("/api/v1/users/getUser",null);
+        setUser(response.data?.data);
+        console.log(response.data?.data);
+      } catch (error) {
+        console.error("Error fetching user:", error);
       }
     };
 
-    parseAccessToken();
-    console.log(user);
+    fetchUser();
   }, []);
 
+
   return (
-    <userContext.Provider value={{ user }}>{children}</userContext.Provider>
+    <userContext.Provider value={{ user,setUser }}>{children}</userContext.Provider>
   );
 };
 

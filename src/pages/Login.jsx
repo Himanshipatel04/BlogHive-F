@@ -18,6 +18,7 @@ const Login = () => {
 
   const router = useNavigate();
 
+
   const handleChange = (e) => {
     setData({ ...data, [e.target.id]: e.target.value });
   };
@@ -29,6 +30,7 @@ const Login = () => {
       console.log(res);
       alert("User login successfully!");
       router("/");
+      window.location.reload();
     } catch (error) {
       console.log(`Error while regsitering ${error}`);
     }

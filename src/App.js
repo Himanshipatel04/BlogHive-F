@@ -3,12 +3,12 @@ import Footer from "./common/Footer";
 import Home from "./pages/Home";
 import Story from "./pages/Story";
 import Write from "./pages/Write";
-import Membership from "./pages/Membership";
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 import Blog from "./pages/Blog";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Developers from "./pages/Developers";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
        <Route path="/blogs" element={<Blog/>} />
        <Route path="/story" element={<Story/>} />
        <Route path="/write" element={<Write/>} />
-       <Route path="/membership" element={<Membership/>} />
+       <Route path="/profile" element={<Profile/>} />
        <Route path="/login" element={<Login/>} />
        <Route path="/register" element={<Register/>} />
        <Route path="/developers" element={<Developers/>} />
