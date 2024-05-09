@@ -1,7 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import { MdDeleteOutline } from "react-icons/md";
+import axios from "axios";
 
-const BlogCard = (props) => {
+const BlogCard2 = (props) => {
   const truncateContent = (content) => {
     const words = content.split(' ');
     if (words.length > 30) {
@@ -9,10 +11,23 @@ const BlogCard = (props) => {
     }
     return content;
   };
+  
+    const handleDeletion = async() => {
+    try {
+      const res = await axios.post(`/api/v1/blogs/deleteBlog/${props.id}`)
+      console.log(res);
+      alert("Blog deleted successfully!")
+      window.location.reload()
+    } catch (error) {
+      console.log("error from deletion of file",error);
+    }
+   }
+
   return (
     <div className="h-80 w-80 rounded-xl shadow-md shadow-black outline-none border-none">
-      <div className="flex items-center justify-center shadow-md  bg-black text-white shadow-slate-500 rounded-tr-xl rounded-tl-xl p-2 inria-sans-regular-italic">
+      <div className="flex  justify-between px-5 shadow-md items-center  bg-black text-white shadow-slate-500 rounded-tr-xl rounded-tl-xl p-2 inria-sans-regular-italic">
         <p className="text-lg font-semibold">{props.username}</p>
+        <MdDeleteOutline className="text-2xl" onClick={handleDeletion}  />
       </div>
       <div className="flex p-3 flex-col gap-2 mt-3 items-center justify-center">
         <p className="text-xl inria-sans-regular-italic">{props.title}</p>
@@ -23,4 +38,4 @@ const BlogCard = (props) => {
   );
 };
 
-export default BlogCard;
+export default BlogCard2;

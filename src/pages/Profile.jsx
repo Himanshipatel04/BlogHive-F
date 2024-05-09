@@ -6,7 +6,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import Button from "../components/Button";
 import { FaUserCog } from "react-icons/fa";
 import axios from "axios";
-import BlogCard from "../components/BlogCard";
+import BlogCard2 from "../components/BlogCard2";
 import { Link, useNavigate } from "react-router-dom";
 import Reload from "../components/Reload";
 
@@ -59,6 +59,8 @@ const Profile = () => {
     return <div>Loading...</div>; // Or any other loading indicator
   }
 
+   
+
   return (
     <div className="h-fit p-20 flex flex-col gap-5">
       <div className=" ml-12 h-fit p-4 w-[500px] flex flex-col items-center justify-center gap-3 shadow-lg border-none outline-none rounded-xl shadow-black">
@@ -71,9 +73,8 @@ const Profile = () => {
         </span>
         <div className="flex flex-col gap-3 items-center justify-start">
           <span className="flex gap-2 items-center justify-start">
-            {" "}
             <SiVirustotal className=" -rotate-90" /> Total blogs posted:{" "}
-            {totalBlogs}{" "}
+            {totalBlogs}
           </span>
           <span className="flex gap-2 items-center justify-start font-semibold underline">
             <FaUserCog className="text-2xl" />
@@ -86,10 +87,10 @@ const Profile = () => {
         </div>
         <Button text="Logout" func={handleLogout} />
       </div>
-      <p className="text-center text-3xl inria-sans-regular-italic">Your Blogs</p>
+    <p className="text-center text-3xl inria-sans-regular-italic">{blogs.length === 0?"No Blogs Posted Yet!":"Your Blogs"}</p>
       <div className="flex h-fit justify-center p-6 flex-wrap gap-12">
       {blogs.map((item, key) => (
-          <BlogCard
+          <BlogCard2
             key={key}
             id={item._id}
             username={user.username}

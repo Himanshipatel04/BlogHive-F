@@ -42,7 +42,7 @@ const SinglePage = () => {
 
   return (
     <div className="flex justify-center items-center h-screen p-20 px-56 ">
-      <div className="flex relative flex-col items-center gap-8 justify-center  shadow-md rounded-xl p-10 shadow-black border-none outline-none">
+      <div className="flex relative flex-col items-center gap-8 justify-center bcShadow rounded-xl p-10 border-none outline-none">
         <h2 className="text-4xl inria-sans-regular-italic">{blog.title}</h2>
         <p className="text-lg inria-sans-regular mb-8">{blog.content}</p>
         <p className="absolute bottom-4 right-10 text-xl inria-sans-regular2">-{author}</p>
