@@ -7,8 +7,10 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import axios from "axios";
+import Reload from "../components/Reload";
 
 const Register = () => {
+  Reload()
   const [data, setData] = useState();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -28,7 +30,7 @@ const Register = () => {
       const res = await axios.post("/api/v1/users/register", data);
       console.log(res);
       alert("User created successfully!");
-      router("/");
+      router("/login");
     } catch (error) {
       console.log(`Error while regsitering ${error}`);
     }

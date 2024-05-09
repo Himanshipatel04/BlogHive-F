@@ -1,8 +1,10 @@
 import React from "react";
 import himi from "../asset/photo.jpg";
 import prince from "../asset/prince.jpg";
+import Reload from "../components/Reload";
 
 const Developers = () => {
+  Reload()
   return (
     <div className="h-fit py-52 flex items-center justify-center">
       <div className="flex gap-80">

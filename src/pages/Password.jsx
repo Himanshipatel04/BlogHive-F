@@ -2,8 +2,10 @@ import axios from "axios";
 import React, { useState } from "react";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import Reload from "../components/Reload";
 
 const Password = () => {
+  Reload()
   const [data, setData] = useState();
   const router = useNavigate();
 
@@ -41,7 +43,7 @@ const Password = () => {
         <input
           type="text"
           className="shadow-black placeholder:font-semibold shadow-md w-96 p-2 h-10 outline-none border-none rounded-lg"
-          placeholder="Enter old password"
+          placeholder="Enter new password"
           name=""
           onChange={handleChange}
           required

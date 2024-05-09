@@ -7,9 +7,10 @@ import twitter from "../asset/social-media.png";
 import instagram from "../asset/instagram.png";
 import telegram from "../asset/telegram.png";
 import { Link } from "react-router-dom";
+import Reload from "../components/Reload";
 
 const Home = () => {
-
+  Reload()
   return (
     <div className="inria-sans-light h-fit py-52 flex items-center justify-between pr-36 pl-36  ">
      

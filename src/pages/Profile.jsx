@@ -6,10 +6,14 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import Button from "../components/Button";
 import { FaUserCog } from "react-icons/fa";
 import axios from "axios";
+import BlogCard from "../components/BlogCard";
 import { Link, useNavigate } from "react-router-dom";
+import Reload from "../components/Reload";
 
 const Profile = () => {
+  Reload();
   const route = useNavigate();
+  const [blogs, setBlogs] = useState([]);
   const { user } = useContext(userContext);
   const [totalBlogs, setTotalBlogs] = useState(0);
 
@@ -24,6 +28,19 @@ const Profile = () => {
       console.error("Error logging out:", error);
     }
   };
+
+  useEffect(() => {
+    const getUserBlogs = async () => {
+      try {
+        const res = await axios.post("/api/v1/blogs/allBlogs");
+        console.log(res.data.data);
+        setBlogs(res.data.data);
+      } catch (error) {
+        console.log("Error from get user blogs", error);
+      }
+    };
+    getUserBlogs();
+  }, []);
 
   useEffect(() => {
     const getTotalBlogs = async () => {
@@ -43,8 +60,8 @@ const Profile = () => {
   }
 
   return (
-    <div className="h-screen p-20">
-      <div className="h-fit p-4 w-[500px] flex flex-col items-center justify-center gap-3 shadow-lg border-none outline-none rounded-xl shadow-black">
+    <div className="h-fit p-20 flex flex-col gap-5">
+      <div className=" ml-12 h-fit p-4 w-[500px] flex flex-col items-center justify-center gap-3 shadow-lg border-none outline-none rounded-xl shadow-black">
         <FaRegUserCircle className="text-6xl " />
         <span className="text-2xl inria-sans-light-italic ">
           {user.username}
@@ -59,13 +76,27 @@ const Profile = () => {
             {totalBlogs}{" "}
           </span>
           <span className="flex gap-2 items-center justify-start font-semibold underline">
-            <FaUserCog className="text-2xl" /><Link to="/username">Change Username</Link>
+            <FaUserCog className="text-2xl" />
+            <Link to="/username">Change Username</Link>
           </span>
           <span className="flex gap-5 items-center justify-start font-semibold underline">
-            <RiLockPasswordLine className="text-2xl" /><Link to="/password">Change Password</Link>
+            <RiLockPasswordLine className="text-2xl" />
+            <Link to="/password">Change Password</Link>
           </span>
         </div>
         <Button text="Logout" func={handleLogout} />
+      </div>
+      <p className="text-center text-3xl inria-sans-regular-italic">Your Blogs</p>
+      <div className="flex h-fit justify-center p-6 flex-wrap gap-12">
+      {blogs.map((item, key) => (
+          <BlogCard
+            key={key}
+            id={item._id}
+            username={user.username}
+            title={item.title}
+            content={item.content}
+          />
+        ))}
       </div>
     </div>
   );
