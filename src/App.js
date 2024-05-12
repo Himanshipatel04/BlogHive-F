@@ -20,6 +20,7 @@ function App() {
       <Routes>
        <Route path="/" element={<Home/>} />
        <Route path="/blogs" element={<Blog/>} />
+       {/* <Route path="/blogs/:id" element={<Blog/>} /> */}
        <Route path="/story" element={<Story/>} />
        <Route path="/write" element={<Write/>} />
        <Route path="/profile" element={<Profile/>} />
@@ -29,7 +30,6 @@ function App() {
        <Route path="/username" element={<Username/>} />
        <Route path="/password" element={<Password/>} />
        <Route path="/blog/:id" element={<SinglePage/>} />
-
       </Routes>
        <Footer/> 
    </Router>
