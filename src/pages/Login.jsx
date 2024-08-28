@@ -37,8 +37,8 @@ const Login = () => {
   };
 
   return (
-    <div className="h-fit py-28 flex justify-center items-center">
-      <div className="flex flex-col items-center rounded-2xl justify-center h-[500px] w-[400px] shadow-lg shadow-black">
+    <div className="h-fit py-20 md:py-32 flex justify-center items-center">
+      <div className="flex flex-col items-center rounded-2xl justify-center h-[450px] md:h-[500px] w-[350px] md:w-[400px] outline outline-white md:outline-none shadow-lg shadow-black">
         <p className="inria-sans-bold tracking-wide text-5xl font-extrabold mb-1">
           BlogHive
         </p>

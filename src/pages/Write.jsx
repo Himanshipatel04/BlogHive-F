@@ -33,33 +33,23 @@ const Write = () => {
   };
 
   return (
-    <div className="h-screen inria-sans-regular flex items-center justify-center gap-40 ">
+    <div className="h-[700px] md:h-screen inria-sans-regular flex items-center justify-center md:gap-40">
       <form
         action="post"
         className="flex flex-col items-center justify-center h-full gap-10"
       >
-        {/* <input
-          type="text"
-          className="shadow-black placeholder:font-semibold shadow-md w-96 p-2 h-10 outline-none border-none rounded-lg"
-          placeholder="Enter username"
-          onChange={handleChange}
-          name=""
-          required
-          id="username"
-        /> */}
+        <p className="text-4xl">Write your heart out!</p>
         <input
           type="text"
-          className="shadow-black placeholder:font-semibold shadow-md w-96 h-10 p-2 outline-none border-none rounded-lg "
+          className="shadow-black placeholder:font-semibold shadow-md w-72 md:w-96 h-10 p-2 outline-none border-none rounded-lg"
           placeholder="Enter title"
           onChange={handleChange}
           required
-          name=""
           id="title"
         />
         
         <textarea
-          name=""
-          className="shadow-black placeholder:font-semibold relative placeholder:absolute placeholder:top-2 shadow-md w-96 p-2 h-[200px] outline-none border-none rounded-lg resize-none"
+          className="shadow-black placeholder:font-semibold relative placeholder:absolute placeholder:top-2 shadow-md w-72 md:w-96 p-2 h-[200px] outline-none border-none rounded-lg resize-none"
           onChange={handleChange}
           required
           placeholder="Write your Blog...."
@@ -67,7 +57,11 @@ const Write = () => {
         ></textarea>
         <Button text="Submit" func={handleSubmit} />
       </form>
-      <img src={video} className="-mt-28" alt="" />
+      <img 
+        src={video} 
+        className="hidden md:block md:-mt-28" 
+        alt="" 
+      />
     </div>
   );
 };

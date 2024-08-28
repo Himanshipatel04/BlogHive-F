@@ -1,39 +1,44 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import { MdDeleteOutline } from "react-icons/md";
 import axios from "axios";
 
 const BlogCard2 = (props) => {
   const truncateContent = (content) => {
-    const words = content.split(' ');
-    if (words.length > 30) {
-      return words.slice(0, 35).join(' ');
+    const words = content.split(" ");
+    if (words.length > 25) {
+      return words.slice(0, 25).join(" ");
     }
     return content;
   };
-  
-    const handleDeletion = async() => {
+
+  const handleDeletion = async () => {
     try {
-      const res = await axios.post(`/api/v1/blogs/deleteBlog/${props.id}`)
+      const res = await axios.post(`/api/v1/blogs/deleteBlog/${props.id}`);
       console.log(res);
-      alert("Blog deleted successfully!")
-      window.location.reload()
+      alert("Blog deleted successfully!");
+      window.location.reload();
     } catch (error) {
-      console.log("error from deletion of file",error);
+      console.log("error from deletion of file", error);
     }
-   }
+  };
 
   return (
-    <div className="h-80 w-80 rounded-xl shadow-md shadow-black outline-none border-none">
-      <div className="flex  justify-between px-5 shadow-md items-center  bg-black text-white shadow-slate-500 rounded-tr-xl rounded-tl-xl p-2 inria-sans-regular-italic">
-        <p className="text-lg font-semibold">{props.username}</p>
-        <MdDeleteOutline className="text-2xl" onClick={handleDeletion}  />
+    <div className="h-fit w-full max-w-sm md:max-w-md lg:max-w-lg rounded-xl shadow-md relative shadow-black border-none overflow-hidden">
+      <div className="flex justify-between px-4 py-2 bg-black text-white items-center shadow-md rounded-t-xl">
+        <p className="text-base md:text-lg font-semibold">{props.username}</p>
+        <MdDeleteOutline className="text-xl md:text-2xl cursor-pointer" onClick={handleDeletion} />
       </div>
-      <div className="flex p-3 flex-col gap-2 mt-3 items-center justify-center">
-        <p className="text-xl inria-sans-regular-italic">{props.title}</p>
-        <p className="font-medium">{truncateContent(props.content)}</p>
+      <div className="flex flex-col p-4 gap-2">
+        <p className="text-lg md:text-xl font-semibold">{props.title}</p>
+        <p className="text-sm md:text-base">{truncateContent(props.content)}...</p>
       </div>
-        <Link to={`/blog/${props.id}`} className="underline p-4 text-blue-700">Read more...</Link>
+      <Link
+        to={`/blog/${props.id}`}
+        className="underline text-blue-700 absolute bottom-4 left-4"
+      >
+        Read more...
+      </Link>
     </div>
   );
 };

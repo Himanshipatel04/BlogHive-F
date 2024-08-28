@@ -6,8 +6,8 @@ import Reload from "../components/Reload";
 const Developers = () => {
   Reload()
   return (
-    <div className="h-fit py-52 flex items-center justify-center">
-      <div className="flex gap-80">
+    <div className="h-fit py-52 flex items-center justify-center ">
+      <div className="flex gap-80 flex-col md:flex-row">
         <div className="flex gap-6 h-80 w-[410px] justify-center bg-black text-white items-center shadow-lg shadow-black rounded-tr-2xl rounded-bl-2xl">
           <img src={himi} className="h-72 w-62 pl-2 rounded-bl-2xl rounded-tr-2xl" alt="" />
           <div className="">

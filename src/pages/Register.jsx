@@ -10,7 +10,7 @@ import axios from "axios";
 import Reload from "../components/Reload";
 
 const Register = () => {
-  Reload()
+  Reload();
   const [data, setData] = useState();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -37,8 +37,8 @@ const Register = () => {
   };
 
   return (
-    <div className="h-fit py-28 flex justify-center items-center">
-      <div className="flex flex-col items-center rounded-2xl justify-center h-[500px] w-[400px] shadow-lg shadow-black">
+    <div className="h-fit py-20 md:py-28 flex justify-center items-center">
+      <div className="flex flex-col items-center rounded-2xl outline justify-center h-[450px] md:h-[500px] w-[350px] md:w-[400px] shadow-lg shadow-black outline-white md:outline-none">
         <p className="inria-sans-bold tracking-wide text-5xl font-extrabold mb-1">
           BlogHive
         </p>
