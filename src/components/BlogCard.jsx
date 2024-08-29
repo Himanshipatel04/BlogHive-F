@@ -40,7 +40,7 @@ const BlogCard = (props) => {
   const truncateContent = (content) => {
     const words = content.split(" ");
     if (words.length > 30) {
-      return words.slice(0, 31).join(" ");
+      return words.slice(0, 30).join(" ");
     }
     return content;
   };

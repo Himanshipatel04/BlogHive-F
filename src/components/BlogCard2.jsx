@@ -6,7 +6,7 @@ import axios from "axios";
 const BlogCard2 = (props) => {
   const truncateContent = (content) => {
     const words = content.split(" ");
-    if (words.length > 25) {
+    if (words.length > 30) {
       return words.slice(0, 25).join(" ");
     }
     return content;
@@ -25,13 +25,13 @@ const BlogCard2 = (props) => {
 
   return (
     <div className="h-fit w-full max-w-sm md:max-w-md lg:max-w-lg rounded-xl shadow-md relative shadow-black border-none overflow-hidden">
-      <div className="flex justify-between px-4 py-2 bg-black text-white items-center shadow-md rounded-t-xl">
+      <div className="flex justify-between px-4 py-2 bg-black text-white items-center shadow-md rounded-t-xl"> 
         <p className="text-base md:text-lg font-semibold">{props.username}</p>
         <MdDeleteOutline className="text-xl md:text-2xl cursor-pointer" onClick={handleDeletion} />
       </div>
       <div className="flex flex-col p-4 gap-2">
-        <p className="text-lg md:text-xl font-semibold">{props.title}</p>
-        <p className="text-sm md:text-base">{truncateContent(props.content)}...</p>
+        <p className="text-lg md:text-xl font-semibold"> {props.title}</p>
+        <p className="text-sm">{truncateContent(props.content)}...</p>
       </div>
       <Link
         to={`/blog/${props.id}`}

@@ -15,7 +15,7 @@ const Header = () => {
     <div>
       <nav className="bg-black h-20 inria-sans-light py-1 md:px-16 px-4 flex items-center justify-between">
         <Link to="/" className="p-1 grid gap-1">
-          <p className="inria-sans-regular2 font-extrabold text-white tracking-wide text-2xl md:text-4xl">
+          <p className="inria-sans-regular2 font-extrabold text-white tracking-wide text-3xl md:text-4xl">
             BlogHive.
           </p>
           <p className="text-xs font-semibold text-right text-white tracking-wider hidden sm:block">
@@ -47,7 +47,7 @@ const Header = () => {
           ) : (
             <Link
               to="/login"
-              className="text-white text-sm md:text-xl outline outline-2 outline-white px-3 md:px-4 py-1 text-center rounded-full hover:bg-white hover:text-black transition-all"
+              className="text-white text-md md:text-xl outline outline-2 outline-white px-4 py-1 md:py-2 text-center rounded-full hover:bg-white hover:text-black hover:font-semibold transition-all"
             >
               Login
             </Link>

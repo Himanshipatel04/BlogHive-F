@@ -33,10 +33,9 @@ const Profile = () => {
     const getUserBlogs = async () => {
       try {
         const res = await axios.post("/api/v1/blogs/allBlogs");
-        console.log(res.data.data);
         setBlogs(res.data.data);
       } catch (error) {
-        console.log("Error from get user blogs", error);
+        console.error("Error from get user blogs:", error);
       }
     };
     getUserBlogs();
@@ -59,37 +58,36 @@ const Profile = () => {
     return <div>Loading...</div>; // Or any other loading indicator
   }
 
-   
-
   return (
-    <div className="h-fit p-20 flex flex-col gap-5">
-      <div className=" ml-12 h-fit p-4 w-[500px] flex flex-col items-center justify-center gap-3 shadow-lg border-none outline-none rounded-xl shadow-black">
-        <FaRegUserCircle className="text-6xl " />
-        <span className="text-2xl inria-sans-light-italic ">
+    <div className="h-fit p-10 sm:p-10 lg:p-28 flex flex-col gap-10">
+      <div className="mx-auto h-fit p-4 w-full sm:w-[400px] lg:w-[500px] flex flex-col items-center justify-center gap-3 shadow-lg border-none outline-none rounded-xl shadow-black">
+        <FaRegUserCircle className="text-5xl sm:text-6xl" />
+        <span className="text-xl sm:text-2xl inria-sans-light-italic">
           {user.username}
         </span>
-        <span className="font-semibold">
+        <span className="text-center font-semibold">
           <span className="font-bold">Email</span> : {user.email}
         </span>
-        <div className="flex flex-col gap-3 items-center justify-start">
+        <div className="flex flex-col gap-2 sm:gap-3 items-center justify-start">
           <span className="flex gap-2 items-center justify-start">
-            <SiVirustotal className=" -rotate-90" /> Total blogs posted:{" "}
-            {totalBlogs}
+            <SiVirustotal className=" -rotate-90" /> Total blogs posted: {totalBlogs}
           </span>
           <span className="flex gap-2 items-center justify-start font-semibold underline">
-            <FaUserCog className="text-2xl" />
+            <FaUserCog className="text-xl sm:text-2xl" />
             <Link to="/username">Change Username</Link>
           </span>
-          <span className="flex gap-5 items-center justify-start font-semibold underline">
-            <RiLockPasswordLine className="text-2xl" />
+          <span className="flex gap-4 sm:gap-5 items-center justify-start font-semibold underline">
+            <RiLockPasswordLine className="text-xl sm:text-2xl" />
             <Link to="/password">Change Password</Link>
           </span>
         </div>
         <Button text="Logout" func={handleLogout} />
       </div>
-    <p className="text-center text-3xl inria-sans-regular-italic">{blogs.length === 0?"No Blogs Posted Yet!":"Your Blogs"}</p>
-      <div className="flex h-fit justify-center p-6 flex-wrap gap-12">
-      {blogs.map((item, key) => (
+      <p className="text-center text-2xl sm:text-3xl inria-sans-regular-italic">
+        {blogs.length === 0 ? "No Blogs Posted Yet!" : "Your Blogs"}
+      </p>
+      <div className="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12">
+        {blogs.map((item, key) => (
           <BlogCard2
             key={key}
             id={item._id}
