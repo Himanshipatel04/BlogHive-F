@@ -31,7 +31,7 @@ const Login = () => {
       router("/");
       window.location.reload();
     } catch (error) {
-      console.log(`Error while regsitering ${error}`);
+      console.log(`Error while logging in ${error}`);
     }
   };
 
