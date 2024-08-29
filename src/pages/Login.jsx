@@ -18,7 +18,6 @@ const Login = () => {
 
   const router = useNavigate();
 
-
   const handleChange = (e) => {
     setData({ ...data, [e.target.id]: e.target.value });
   };
@@ -26,7 +25,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/users/login", data);
+      const res = await axios.post("https://bloghive-b.onrender.com/api/v1/users/login", data);
       console.log(res);
       alert("User login successfully!");
       router("/");
