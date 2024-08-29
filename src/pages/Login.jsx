@@ -25,7 +25,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://bloghive-b.onrender.com/api/v1/users/login", data);
+      const res = axios.post('https://bloghive-b.onrender.com/api/v1/users/login', data, {
+        withCredentials: true  // Only if you need to send credentials (e.g., cookies)
+      });
       console.log(res);
       alert("User login successfully!");
       router("/");
