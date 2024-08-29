@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState} from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 
@@ -12,12 +12,12 @@ export const UserContextProvider = ({ children }) => {
       try {
         const response = await axios.post(
           "https://bloghive-b.onrender.com/api/v1/users/getUser",
-          null,
+          null,  // Request body (null if not needed)
           {
-            headers: { // Include the token if needed
-              'Content-Type': 'application/json',
+            headers: {
+              'Content-Type': 'application/json'
             },
-            withCredentials: true,  // Include this if you need to send cookies
+            withCredentials: true,  // Include if needed
           }
         );
         setUser(response.data?.data);
@@ -30,9 +30,10 @@ export const UserContextProvider = ({ children }) => {
     fetchUser();
   }, []);
 
-
   return (
-    <userContext.Provider value={{ user,setUser }}>{children}</userContext.Provider>
+    <userContext.Provider value={{ user, setUser }}>
+      {children}
+    </userContext.Provider>
   );
 };
 
