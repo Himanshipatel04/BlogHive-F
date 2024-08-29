@@ -42,5 +42,5 @@
   "devDependencies": {
     "tailwindcss": "^3.4.1"
   },
-  "proxy": "http://localhost:4000/"
+  "proxy": "https://bloghive-b.onrender.com"
 }
