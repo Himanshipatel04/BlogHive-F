@@ -27,7 +27,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/users/register", data);
+      const res = await axios.post("https://bloghive-b.onrender.com/api/v1/users/register", data);
       console.log(res);
       alert("User created successfully!");
       router("/login");
