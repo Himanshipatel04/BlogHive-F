@@ -10,7 +10,16 @@ export const UserContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.post("https://bloghive-b.onrender.com/api/v1/users/getUser",null);
+        const response = await axios.post(
+          "https://bloghive-b.onrender.com/api/v1/users/getUser",
+          null,
+          {
+            headers: { // Include the token if needed
+              'Content-Type': 'application/json',
+            },
+            withCredentials: true,  // Include this if you need to send cookies
+          }
+        );
         setUser(response.data?.data);
         console.log(response.data?.data);
       } catch (error) {
